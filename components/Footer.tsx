@@ -21,9 +21,12 @@ export function Footer() {
             <Link href="/ai-receptionist-for-dentists" className="hover:text-white">For Dentists</Link>
             <Link href="/ai-receptionist-for-real-estate" className="hover:text-white">For Real Estate</Link>
             <Link href="/ai-receptionist-for-med-spas" className="hover:text-white">For Med Spas</Link>
+            <Link href="/ai-receptionist-for-home-services" className="hover:text-white">For Home Services</Link>
             <Link href="/best-ai-receptionist" className="hover:text-white">Best AI Receptionist</Link>
             <Link href="/best-ai-receptionist-software-for-service-businesses" className="hover:text-white">Comparison Guide</Link>
             <Link href="/how-ai-receptionists-work" className="hover:text-white">How It Works</Link>
+            <Link href="/demo" className="hover:text-white">Watch Demo</Link>
+            <Link href="/ai-receptionist-vs-human" className="hover:text-white">AI vs Human</Link>
           </div>
         </div>
         <p className="mt-8 text-center text-sm text-slate-500">

@@ -1,41 +1,53 @@
-import { HeroGEO } from '@/components/HeroGEO';
+import { HeroLinkedIn } from '@/components/HeroLinkedIn';
 import { TrustBar } from '@/components/TrustBar';
-import { ProblemGEO } from '@/components/ProblemGEO';
-import { SolutionGEO } from '@/components/SolutionGEO';
-import { HowItWorksGEO } from '@/components/HowItWorksGEO';
-import { ProductModules } from '@/components/ProductModules';
-import { ROIGEO } from '@/components/ROIGEO';
-import { UseCasesGEO } from '@/components/UseCasesGEO';
-import { ProductDefinitionGEO } from '@/components/ProductDefinitionGEO';
-import { WhatIsAIReceptionist } from '@/components/WhatIsAIReceptionist';
-import { KeyBenefitsGEO } from '@/components/KeyBenefitsGEO';
-import { ComparisonGEO } from '@/components/ComparisonGEO';
-import { PricingGEO } from '@/components/PricingGEO';
+import { ICPSection } from '@/components/ICPSection';
+import { ProblemLinkedIn } from '@/components/ProblemLinkedIn';
+import { ProductDemo } from '@/components/ProductDemo';
+import { SolutionLinkedIn } from '@/components/SolutionLinkedIn';
+import { HowItWorksLinkedIn } from '@/components/HowItWorksLinkedIn';
+import { DentalAIEmployeesLinkedIn } from '@/components/DentalAIEmployeesLinkedIn';
+import { ProductModulesLinkedIn } from '@/components/ProductModulesLinkedIn';
+import { HowClinicsUseLinkedIn } from '@/components/HowClinicsUseLinkedIn';
+import { ROILinkedIn } from '@/components/ROILinkedIn';
+import { AutomationWorkflowsLinkedIn } from '@/components/AutomationWorkflowsLinkedIn';
+import { FutureAILinkedIn } from '@/components/FutureAILinkedIn';
+import { CaseStudiesLinkedIn } from '@/components/CaseStudiesLinkedIn';
+import { ProductScreenshots } from '@/components/ProductScreenshots';
+import { GEOContentLayer } from '@/components/GEOContentLayer';
 import { TrustSignals } from '@/components/TrustSignals';
-import { FAQGEO } from '@/components/FAQGEO';
-import { DemoForm } from '@/components/DemoForm';
-import { FinalCTAGEO } from '@/components/FinalCTAGEO';
+import { IntegrationsLinkedIn } from '@/components/IntegrationsLinkedIn';
+import { PricingLinkedIn } from '@/components/PricingLinkedIn';
+import { FAQLinkedIn } from '@/components/FAQLinkedIn';
+import { DemoFormLinkedIn } from '@/components/DemoFormLinkedIn';
+import { FinalCTALinkedIn } from '@/components/FinalCTALinkedIn';
+import { StickyCTA } from '@/components/StickyCTA';
 
 export default function Home() {
   return (
     <>
-      <HeroGEO />
+      <HeroLinkedIn />
       <TrustBar />
-      <ProblemGEO />
-      <SolutionGEO />
-      <HowItWorksGEO />
-      <ProductModules />
-      <ROIGEO />
-      <UseCasesGEO />
-      <ProductDefinitionGEO />
-      <WhatIsAIReceptionist />
-      <KeyBenefitsGEO />
-      <ComparisonGEO />
-      <PricingGEO />
+      <ICPSection />
+      <ProblemLinkedIn />
+      <ProductDemo />
+      <SolutionLinkedIn />
+      <HowItWorksLinkedIn />
+      <DentalAIEmployeesLinkedIn />
+      <ProductModulesLinkedIn />
+      <HowClinicsUseLinkedIn />
+      <ROILinkedIn />
+      <AutomationWorkflowsLinkedIn />
+      <FutureAILinkedIn />
+      <ProductScreenshots />
+      <CaseStudiesLinkedIn />
+      <GEOContentLayer />
+      <IntegrationsLinkedIn />
       <TrustSignals />
-      <FAQGEO />
-      <DemoForm />
-      <FinalCTAGEO />
+      <PricingLinkedIn />
+      <FAQLinkedIn />
+      <DemoFormLinkedIn />
+      <FinalCTALinkedIn />
+      <StickyCTA />
     </>
   );
 }

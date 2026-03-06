@@ -11,7 +11,7 @@ export function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-semibold tracking-tight text-slate-900">
             AI Employees
           </span>
@@ -31,10 +31,10 @@ export function Nav() {
             {t.nav.industries}
           </Link>
           <Link
-            href="/ai-receptionist"
+            href="/ai-receptionist-for-dentists"
             className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
           >
-            AI Receptionist
+            Dental AI Suite
           </Link>
           <Link
             href="#pricing"
@@ -54,16 +54,16 @@ export function Nav() {
               <option value="ru">RU</option>
             </select>
             <Link
-              href="#demo-form"
+              href="/demo"
               className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
             >
-              Book Demo
+              Watch Demo
             </Link>
             <Link
-              href="#pricing"
+              href="#demo-form"
               className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
             >
-              {t.nav.joinBeta}
+              Book Demo
             </Link>
           </div>
         </div>
@@ -100,11 +100,11 @@ export function Nav() {
             {t.nav.industries}
           </Link>
           <Link
-            href="/ai-receptionist"
+            href="/ai-receptionist-for-dentists"
             className="block py-2 text-slate-600"
             onClick={() => setMobileOpen(false)}
           >
-            AI Receptionist
+            Dental AI Suite
           </Link>
           <Link
             href="#pricing"
@@ -115,18 +115,18 @@ export function Nav() {
           </Link>
           <div className="mt-3 flex gap-2">
             <Link
-              href="#demo-form"
+              href="/demo"
               className="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-center text-sm font-medium"
               onClick={() => setMobileOpen(false)}
             >
-              Book Demo
+              Watch Demo
             </Link>
             <Link
-              href="#pricing"
+              href="#demo-form"
               className="flex-1 rounded-lg bg-slate-900 px-4 py-2 text-center text-sm font-medium text-white"
               onClick={() => setMobileOpen(false)}
             >
-              {t.nav.joinBeta}
+              Book Demo
             </Link>
           </div>
         </div>

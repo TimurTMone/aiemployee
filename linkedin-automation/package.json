@@ -1,0 +1,16 @@
+{
+  "name": "linkedin-outbound-automation",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "import": "node scripts/import-leads.js",
+    "enrich": "node scripts/enrich-leads.js",
+    "generate": "node scripts/generate-messages.js",
+    "track": "node scripts/update-status.js"
+  },
+  "dependencies": {
+    "googleapis": "^128.0.0",
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.0"
+  }
+}
