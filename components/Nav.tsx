@@ -25,13 +25,19 @@ export function Nav() {
             {t.nav.product}
           </Link>
           <Link
-            href="#industries"
+            href="#use-cases"
             className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
           >
             {t.nav.industries}
           </Link>
           <Link
-            href="#beta"
+            href="/ai-receptionist"
+            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
+          >
+            AI Receptionist
+          </Link>
+          <Link
+            href="#pricing"
             className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
           >
             {t.nav.pricing}
@@ -48,7 +54,13 @@ export function Nav() {
               <option value="ru">RU</option>
             </select>
             <Link
-              href="#beta"
+              href="#demo-form"
+              className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+            >
+              Book Demo
+            </Link>
+            <Link
+              href="#pricing"
               className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
             >
               {t.nav.joinBeta}
@@ -81,31 +93,36 @@ export function Nav() {
             {t.nav.product}
           </Link>
           <Link
-            href="#industries"
+            href="#use-cases"
             className="block py-2 text-slate-600"
             onClick={() => setMobileOpen(false)}
           >
             {t.nav.industries}
           </Link>
           <Link
-            href="#beta"
+            href="/ai-receptionist"
+            className="block py-2 text-slate-600"
+            onClick={() => setMobileOpen(false)}
+          >
+            AI Receptionist
+          </Link>
+          <Link
+            href="#pricing"
             className="block py-2 text-slate-600"
             onClick={() => setMobileOpen(false)}
           >
             {t.nav.pricing}
           </Link>
           <div className="mt-3 flex gap-2">
-            <select
-              value={locale}
-              onChange={(e) => setLocale(e.target.value as 'en' | 'es' | 'ru')}
-              className="rounded border border-slate-200 px-3 py-2 text-sm"
-            >
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-              <option value="ru">RU</option>
-            </select>
             <Link
-              href="#beta"
+              href="#demo-form"
+              className="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-center text-sm font-medium"
+              onClick={() => setMobileOpen(false)}
+            >
+              Book Demo
+            </Link>
+            <Link
+              href="#pricing"
               className="flex-1 rounded-lg bg-slate-900 px-4 py-2 text-center text-sm font-medium text-white"
               onClick={() => setMobileOpen(false)}
             >

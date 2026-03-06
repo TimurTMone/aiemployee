@@ -9,9 +9,9 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title:
-    'AI Employees | Hire Digital Employees That Work 24/7 | AI Receptionist, Automation',
+    'AI Employees | AI Receptionist for Service Businesses | Stop Losing Bookings',
   description:
-    'Deploy trained digital staff that answer customers, book appointments, qualify leads, and complete operational work automatically. AI receptionist, automation for dentists, real estate, med spas, ecommerce.',
+    'AI receptionist software that answers customers, books appointments, qualifies leads 24/7. Built for dentists, real estate, med spas. More bookings, faster response, fewer missed leads.',
   keywords: [
     'AI employees',
     'AI receptionist',
@@ -45,27 +45,88 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'AI Employees',
-    applicationCategory: 'BusinessApplication',
-    description:
-      'Deploy trained digital staff that answer customers, book appointments, qualify leads, and complete operational work automatically. AI receptionist, automation for dentists, real estate, med spas, ecommerce.',
-    offers: {
-      '@type': 'Offer',
-      price: '99',
-      priceCurrency: 'USD',
+  const schemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'AI Employees',
+      url: 'https://aiemployee-alpha.vercel.app',
+      description:
+        'AI Employees provides AI receptionist software for service businesses. Automated front desk, booking, lead qualification 24/7.',
     },
-  };
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'AI Employees',
+      applicationCategory: 'BusinessApplication',
+      description:
+        'AI Employee is an AI-powered automation platform that acts like a digital staff member. It answers customer inquiries, books appointments, qualifies leads, and follows up automatically—24/7. Built for dentists, real estate, med spas, and service businesses.',
+      offers: { '@type': 'Offer', price: '99', priceCurrency: 'USD' },
+      featureList: [
+        '24/7 response on chat, SMS, WhatsApp, email, phone',
+        'Automated appointment booking',
+        'Lead qualification',
+        'Industry-specific training',
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is an AI receptionist?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'An AI receptionist is software that answers customer questions, books appointments, qualifies leads, and handles incoming inquiries automatically—24/7. It connects to your website chat, SMS, WhatsApp, email, and phone.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How does AI receptionist software work?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'AI receptionist software connects to your communication channels. When a customer reaches out, the AI responds with relevant information, books appointments, qualifies leads, and can escalate complex requests to your team.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can AI replace front desk staff?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'AI receptionist augments front desk staff. It handles routine inquiries and booking, freeing staff for in-person care and complex situations.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is AI receptionist good for dentists?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. Dentists lose 30% or more of inquiries to missed calls. AI receptionist for dentists answers patient questions, books appointments, and captures new patient leads 24/7.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How much does an AI receptionist cost?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'AI Employees offers early access at $99/month, including receptionist, booking, lead qualification, and all channels.',
+          },
+        },
+      ],
+    },
+  ];
 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} font-sans antialiased`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {schemas.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
         <LanguageProvider>
           <Nav />
           <main>{children}</main>
