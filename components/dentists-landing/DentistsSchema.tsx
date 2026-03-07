@@ -1,3 +1,12 @@
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aiemployee-alpha.vercel.app/' },
+    { '@type': 'ListItem', position: 2, name: 'AI Receptionist for Dentists', item: 'https://aiemployee-alpha.vercel.app/ai-receptionist-for-dentists' },
+  ],
+};
+
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -64,6 +73,10 @@ const PRODUCT_SCHEMA = {
 export function DentistsSchema() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}

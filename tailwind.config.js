@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -34,6 +34,18 @@ module.exports = {
           800: '#1e293b',
           900: '#0f172a',
         },
+        apple: {
+          bg: 'var(--apple-bg)',
+          fg: 'var(--apple-fg)',
+          'fg-secondary': 'var(--apple-fg-secondary)',
+        },
+      },
+      fontSize: {
+        'apple-hero': ['clamp(2.5rem, 5vw + 1.5rem, 4rem)', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
+        'apple-section': ['clamp(2rem, 4vw + 1rem, 3rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+      },
+      spacing: {
+        'section': 'clamp(4rem, 10vw, 7rem)',
       },
     },
   },

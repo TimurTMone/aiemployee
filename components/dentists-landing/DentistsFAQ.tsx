@@ -33,26 +33,33 @@ export function DentistsFAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="border-b border-slate-200/80 bg-white py-20 sm:py-28 dark:border-slate-700/50 dark:bg-slate-900/30">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-          Frequently asked questions
+    <section
+      id="faq"
+      className="bg-white px-5 py-section dark:bg-slate-900"
+      aria-labelledby="faq-heading"
+    >
+      <div className="mx-auto max-w-3xl">
+        <h2 id="faq-heading" className="apple-title text-apple-section text-center font-semibold tracking-tight text-slate-900 dark:text-white">
+          Frequently asked questions.
         </h2>
-        <p className="mt-4 text-center text-lg text-slate-600 dark:text-slate-400">
+        <p className="apple-body mt-4 text-center text-lg text-slate-600 dark:text-slate-400">
           Everything you need to know about our AI receptionist for dental clinics.
         </p>
 
-        <div className="mt-12 space-y-3">
+        <div className="mt-14 space-y-3">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = open === i;
             return (
               <article
                 key={i}
-                className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700"
+                className="overflow-hidden rounded-2xl bg-[#fbfbfd] dark:bg-slate-800/50"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between px-6 py-4 text-left font-medium text-slate-900 hover:bg-slate-50 dark:text-white dark:hover:bg-slate-800/50"
+                  className="flex w-full items-center justify-between px-6 py-5 text-left font-medium text-slate-900 hover:bg-slate-50/50 dark:text-white dark:hover:bg-slate-800"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${i}`}
+                  id={`faq-question-${i}`}
                 >
                   {item.q}
                   <svg
@@ -60,13 +67,19 @@ export function DentistsFAQ() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {isOpen && (
-                  <div className="border-t border-slate-100 bg-slate-50/50 px-6 py-4 dark:border-slate-700 dark:bg-slate-800/30">
-                    <p className="text-slate-700 dark:text-slate-300">{item.a}</p>
+                  <div
+                    id={`faq-answer-${i}`}
+                    className="border-t border-slate-100 px-6 py-5 dark:border-slate-700"
+                    role="region"
+                    aria-labelledby={`faq-question-${i}`}
+                  >
+                    <p className="apple-body text-slate-700 dark:text-slate-300">{item.a}</p>
                   </div>
                 )}
               </article>

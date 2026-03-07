@@ -8,6 +8,10 @@
   --card: #ffffff;
   --muted: #64748b;
   --border: #e2e8f0;
+  /* Apple-style neutrals */
+  --apple-bg: #fbfbfd;
+  --apple-fg: #1d1d1f;
+  --apple-fg-secondary: #6e6e73;
 }
 
 .dark {
@@ -16,12 +20,38 @@
   --card: #1e293b;
   --muted: #94a3b8;
   --border: #334155;
+  --apple-bg: #000000;
+  --apple-fg: #f5f5f7;
+  --apple-fg-secondary: #a1a1a6;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-feature-settings: 'rlig' 1, 'calt' 1;
+}
+
+/* Apple-style display typography: large, tight, bold */
+.apple-display {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.apple-title {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.apple-body {
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Spacer for mobile sticky CTA */
@@ -31,13 +61,8 @@ body {
   }
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Focus styles for accessibility */
+/* Focus styles for accessibility (WCAG) */
 *:focus-visible {
-  outline: 2px solid #0ea5e9;
+  outline: 2px solid #0071e3;
   outline-offset: 2px;
 }

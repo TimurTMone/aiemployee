@@ -7,11 +7,13 @@ const LANGUAGES = [
   { code: 'ky', label: 'Кыргызча' },
 ] as const;
 
-export function LanguageBar() {
+type Props = { darkBg?: boolean };
+
+export function LanguageBar({ darkBg }: Props) {
   return (
-    <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
+    <p className={`flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm ${darkBg ? 'text-slate-400' : 'text-slate-500 dark:text-slate-400'}`}>
       <span>Site available in:</span>
-      <span className="font-medium text-slate-700 dark:text-slate-300">
+      <span className={darkBg ? 'font-medium text-slate-300' : 'font-medium text-slate-700 dark:text-slate-300'}>
         {LANGUAGES.map((l) => l.label).join(' · ')}
       </span>
     </p>

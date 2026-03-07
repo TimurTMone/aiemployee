@@ -50,19 +50,19 @@ export function RequestDemoForm({ variant = 'card' }: Props) {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center dark:border-emerald-800 dark:bg-emerald-950/30">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50">
-          <svg className="h-6 w-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="rounded-3xl bg-emerald-50 p-8 text-center dark:bg-emerald-950/30">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50">
+          <svg className="h-7 w-7 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="mt-4 text-lg font-semibold text-emerald-900 dark:text-emerald-100">
-          You&apos;re on the list
+        <h3 className="mt-5 text-xl font-semibold text-emerald-900 dark:text-emerald-100">
+          You&apos;re on the list.
         </h3>
-        <p className="mt-2 text-emerald-800 dark:text-emerald-200">
+        <p className="apple-body mt-2 text-emerald-800 dark:text-emerald-200">
           We&apos;ll be in touch soon to schedule your demo. Check your inbox.
         </p>
-        <p className="mt-4 text-sm text-emerald-600 dark:text-emerald-400">
+        <p className="mt-5 text-sm text-emerald-600 dark:text-emerald-400">
           Interested in seeing something specific? We&apos;ll tailor the call to your practice.
         </p>
       </div>
@@ -70,14 +70,14 @@ export function RequestDemoForm({ variant = 'card' }: Props) {
   }
 
   const formContent = (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-5" aria-label="Request a demo">
       {error && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-950/50 dark:text-red-300">
+        <div className="rounded-2xl bg-red-50 p-4 text-sm text-red-700 dark:bg-red-950/50 dark:text-red-300" role="alert">
           {error}
         </div>
       )}
       <div>
-        <label htmlFor="rd-name" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+        <label htmlFor="rd-name" className="block text-sm font-medium text-slate-300">
           Name *
         </label>
         <input
@@ -85,12 +85,13 @@ export function RequestDemoForm({ variant = 'card' }: Props) {
           name="name"
           type="text"
           required
-          className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          autoComplete="name"
+          className="mt-2 w-full rounded-xl border-0 bg-white/10 px-4 py-3.5 text-white placeholder:text-slate-400 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
           placeholder="Your name"
         />
       </div>
       <div>
-        <label htmlFor="rd-email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+        <label htmlFor="rd-email" className="block text-sm font-medium text-slate-300">
           Email *
         </label>
         <input
@@ -98,30 +99,32 @@ export function RequestDemoForm({ variant = 'card' }: Props) {
           name="email"
           type="email"
           required
-          className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          autoComplete="email"
+          className="mt-2 w-full rounded-xl border-0 bg-white/10 px-4 py-3.5 text-white placeholder:text-slate-400 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
           placeholder="you@practice.com"
         />
       </div>
       <div>
-        <label htmlFor="rd-practice" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+        <label htmlFor="rd-practice" className="block text-sm font-medium text-slate-300">
           Practice / clinic name
         </label>
         <input
           id="rd-practice"
           name="practice"
           type="text"
-          className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          autoComplete="organization"
+          className="mt-2 w-full rounded-xl border-0 bg-white/10 px-4 py-3.5 text-white placeholder:text-slate-400 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
           placeholder="Optional"
         />
       </div>
       <div>
-        <label htmlFor="rd-want" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+        <label htmlFor="rd-want" className="block text-sm font-medium text-slate-300">
           What would you want to see in a demo?
         </label>
         <select
           id="rd-want"
           name="demo_interest"
-          className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+          className="mt-2 w-full rounded-xl border-0 bg-white/10 px-4 py-3.5 text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black [&>option]:text-slate-900"
         >
           <option value="">Select (optional)</option>
           <option value="call-answering">Call answering & booking</option>
@@ -135,7 +138,7 @@ export function RequestDemoForm({ variant = 'card' }: Props) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-xl bg-slate-900 px-6 py-4 font-semibold text-white transition hover:bg-slate-800 disabled:opacity-70 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100"
+        className="w-full rounded-full bg-white py-4 font-semibold text-black transition hover:bg-slate-100 disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       >
         {loading ? 'Submitting...' : 'Request Demo'}
       </button>
@@ -147,7 +150,7 @@ export function RequestDemoForm({ variant = 'card' }: Props) {
   }
 
   return (
-    <div className="mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-600 dark:bg-slate-800 sm:p-8">
+    <div className="mx-auto max-w-lg rounded-3xl bg-white/5 p-6 backdrop-blur sm:p-8">
       {formContent}
     </div>
   );

@@ -13,18 +13,22 @@ export function ROICalculator() {
   const yearlyLost = monthlyLost * 12;
 
   return (
-    <section id="roi-calculator" className="border-b border-slate-200/80 bg-slate-50/50 py-20 sm:py-28 dark:border-slate-700/50 dark:bg-slate-900/50">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section
+      id="roi-calculator"
+      className="bg-[#fbfbfd] px-5 py-section dark:bg-slate-900/50"
+      aria-labelledby="roi-heading"
+    >
+      <div className="mx-auto max-w-4xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-            Estimate your lost revenue
+          <h2 id="roi-heading" className="apple-title text-apple-section font-semibold tracking-tight text-slate-900 dark:text-white">
+            Estimate your lost revenue.
           </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+          <p className="apple-body mt-4 text-lg text-slate-600 dark:text-slate-400">
             See how much missed calls could be costing your practice.
           </p>
         </div>
 
-        <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50 sm:p-8">
+        <div className="mt-14 rounded-3xl bg-white p-6 shadow-sm dark:bg-slate-800/50 sm:p-8">
           <div className="grid gap-8 sm:grid-cols-3">
             <div>
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
@@ -71,7 +75,7 @@ export function ROICalculator() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-xl bg-slate-900 p-6 text-white dark:bg-slate-800">
+          <div className="mt-10 rounded-2xl bg-slate-900 p-6 text-white dark:bg-slate-800">
             <p className="text-sm font-medium text-slate-300 dark:text-slate-400">Estimated lost revenue</p>
             <p className="mt-1 text-3xl font-bold sm:text-4xl">
               ${monthlyLost.toLocaleString()}
@@ -88,7 +92,7 @@ export function ROICalculator() {
           <p className="mt-6 text-center">
             <a
               href="#demo-form"
-              className="inline-flex items-center gap-2 font-semibold text-slate-900 underline hover:no-underline dark:text-white"
+              className="inline-flex items-center gap-2 font-semibold text-slate-900 underline decoration-2 underline-offset-2 hover:no-underline dark:text-white"
             >
               Request a demo to see your ROI with AI
               <span aria-hidden>→</span>
