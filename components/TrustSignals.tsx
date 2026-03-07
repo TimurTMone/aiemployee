@@ -57,16 +57,6 @@ export function TrustSignals() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 opacity-60">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="flex h-12 w-24 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-400"
-            >
-              Partner
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

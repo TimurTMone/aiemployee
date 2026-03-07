@@ -26,7 +26,7 @@ export default function BestAIReceptionistSoftwarePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-    <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <article className="mx-auto max-w-4xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
       <header className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Best AI Receptionist Software for Service Businesses
@@ -328,32 +328,40 @@ export default function BestAIReceptionistSoftwarePage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-xl border-2 border-slate-200 bg-slate-50 p-8">
-        <h2 className="text-xl font-bold text-slate-900">
+      <section className="mt-12 rounded-2xl border-2 border-slate-900 bg-slate-900 py-12 text-center">
+        <h2 className="text-2xl font-bold text-white">
           Try AI Employees
         </h2>
-        <p className="mt-2 text-slate-700">
-          AI receptionist software built for service businesses. Early access from $99/month.
+        <p className="mt-2 text-slate-300">
+          AI receptionist software built for service businesses. Dental AI Suite from $99/month.
         </p>
-        <Link
-          href="/#demo-form"
-          className="mt-4 inline-block font-medium text-slate-900 underline hover:no-underline"
-        >
-          Book a demo →
-        </Link>
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="/#demo-form"
+            className="rounded-xl bg-white px-8 py-3 font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            Book a Demo
+          </Link>
+          <Link
+            href="/demo"
+            className="rounded-xl border-2 border-slate-400 px-8 py-3 font-semibold text-white transition hover:bg-slate-800"
+          >
+            Watch Demo
+          </Link>
+        </div>
       </section>
 
       {/* Internal links */}
-      <nav className="mt-12 border-t border-slate-200 pt-8">
-        <p className="font-medium text-slate-700">Related pages:</p>
-        <ul className="mt-2 space-y-1">
-          <li><Link href="/ai-receptionist" className="text-slate-900 underline">What is an AI receptionist?</Link></li>
-          <li><Link href="/ai-receptionist-for-dentists" className="text-slate-900 underline">AI receptionist for dentists</Link></li>
-          <li><Link href="/ai-receptionist-for-real-estate" className="text-slate-900 underline">AI receptionist for real estate</Link></li>
-          <li><Link href="/ai-receptionist-for-med-spas" className="text-slate-900 underline">AI receptionist for med spas</Link></li>
-          <li><Link href="/how-ai-receptionists-work" className="text-slate-900 underline">How AI receptionists work</Link></li>
-          <li><Link href="/" className="text-slate-900 underline">AI Employees homepage</Link></li>
-        </ul>
+      <nav className="mt-12 border-t border-slate-200 pt-12">
+        <p className="font-medium text-slate-700">Related pages</p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/ai-receptionist" className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">What is an AI receptionist?</Link>
+          <Link href="/ai-receptionist-for-dentists" className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">AI receptionist for dentists</Link>
+          <Link href="/ai-receptionist-for-real-estate" className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">AI receptionist for real estate</Link>
+          <Link href="/ai-receptionist-for-med-spas" className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">AI receptionist for med spas</Link>
+          <Link href="/how-ai-receptionists-work" className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">How AI receptionists work</Link>
+          <Link href="/" className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50">Homepage</Link>
+        </div>
       </nav>
     </article>
     </>

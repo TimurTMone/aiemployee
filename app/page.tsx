@@ -1,53 +1,58 @@
-import { HeroLinkedIn } from '@/components/HeroLinkedIn';
-import { TrustBar } from '@/components/TrustBar';
-import { ICPSection } from '@/components/ICPSection';
-import { ProblemLinkedIn } from '@/components/ProblemLinkedIn';
-import { ProductDemo } from '@/components/ProductDemo';
-import { SolutionLinkedIn } from '@/components/SolutionLinkedIn';
-import { HowItWorksLinkedIn } from '@/components/HowItWorksLinkedIn';
-import { DentalAIEmployeesLinkedIn } from '@/components/DentalAIEmployeesLinkedIn';
-import { ProductModulesLinkedIn } from '@/components/ProductModulesLinkedIn';
-import { HowClinicsUseLinkedIn } from '@/components/HowClinicsUseLinkedIn';
-import { ROILinkedIn } from '@/components/ROILinkedIn';
-import { AutomationWorkflowsLinkedIn } from '@/components/AutomationWorkflowsLinkedIn';
-import { FutureAILinkedIn } from '@/components/FutureAILinkedIn';
-import { CaseStudiesLinkedIn } from '@/components/CaseStudiesLinkedIn';
-import { ProductScreenshots } from '@/components/ProductScreenshots';
-import { GEOContentLayer } from '@/components/GEOContentLayer';
-import { TrustSignals } from '@/components/TrustSignals';
-import { IntegrationsLinkedIn } from '@/components/IntegrationsLinkedIn';
-import { PricingLinkedIn } from '@/components/PricingLinkedIn';
-import { FAQLinkedIn } from '@/components/FAQLinkedIn';
-import { DemoFormLinkedIn } from '@/components/DemoFormLinkedIn';
-import { FinalCTALinkedIn } from '@/components/FinalCTALinkedIn';
-import { StickyCTA } from '@/components/StickyCTA';
+import type { Metadata } from 'next';
+import { HomeSchema } from '@/components/home/HomeSchema';
+import { HomeHero } from '@/components/home/HomeHero';
+import { LostRevenue } from '@/components/home/LostRevenue';
+import { RealLifeStories } from '@/components/home/RealLifeStories';
+import { HowItWorks } from '@/components/home/HowItWorks';
+import { WhatAIHandles } from '@/components/home/WhatAIHandles';
+import { ROISection } from '@/components/home/ROISection';
+import { CaseStudySection } from '@/components/home/CaseStudySection';
+import { PricingSection } from '@/components/home/PricingSection';
+import { HomeFAQ } from '@/components/home/HomeFAQ';
+import { DemoFormSection } from '@/components/home/DemoFormSection';
+
+export const metadata: Metadata = {
+  title: 'AI Receptionist for Dental Clinics | Stop Losing Patients After Hours',
+  description:
+    'Answer missed calls, book more patients, reduce no-shows. Your AI front desk works 24/7. Book a 15-minute demo.',
+  keywords: [
+    'AI receptionist for dental clinics',
+    'dental AI receptionist',
+    'dental appointment booking AI',
+    'dental clinic automation',
+    'AI for dental front desk',
+  ],
+  openGraph: {
+    title: 'AI Receptionist for Dental Clinics | Stop Losing Patients After Hours',
+    description:
+      'Answer missed calls, book more patients, reduce no-shows. Your AI front desk works 24/7. Book a 15-minute demo.',
+    type: 'website',
+    url: 'https://aiemployee-alpha.vercel.app',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AI Employees - AI receptionist for dental clinics' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Receptionist for Dental Clinics | Stop Losing Patients After Hours',
+    description: 'Answer missed calls, book more patients, reduce no-shows. AI front desk 24/7. Book a demo.',
+  },
+  alternates: { canonical: 'https://aiemployee-alpha.vercel.app' },
+  robots: { index: true, follow: true },
+};
 
 export default function Home() {
   return (
-    <>
-      <HeroLinkedIn />
-      <TrustBar />
-      <ICPSection />
-      <ProblemLinkedIn />
-      <ProductDemo />
-      <SolutionLinkedIn />
-      <HowItWorksLinkedIn />
-      <DentalAIEmployeesLinkedIn />
-      <ProductModulesLinkedIn />
-      <HowClinicsUseLinkedIn />
-      <ROILinkedIn />
-      <AutomationWorkflowsLinkedIn />
-      <FutureAILinkedIn />
-      <ProductScreenshots />
-      <CaseStudiesLinkedIn />
-      <GEOContentLayer />
-      <IntegrationsLinkedIn />
-      <TrustSignals />
-      <PricingLinkedIn />
-      <FAQLinkedIn />
-      <DemoFormLinkedIn />
-      <FinalCTALinkedIn />
-      <StickyCTA />
-    </>
+    <article>
+      <HomeSchema />
+      <HomeHero />
+      <LostRevenue />
+      <RealLifeStories />
+      <HowItWorks />
+      <WhatAIHandles />
+      <ROISection />
+      <CaseStudySection />
+      <PricingSection />
+      <HomeFAQ />
+      <DemoFormSection />
+    </article>
   );
 }

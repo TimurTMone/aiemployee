@@ -277,10 +277,10 @@ export const geoContent = {
         role: 'Broker',
       },
     ],
-    metrics: ['500+ businesses', '2M+ conversations', '24/7 coverage'],
+    metrics: ['Early adopters', '24/7 coverage', 'Enterprise-ready'],
     security: {
       title: 'Enterprise-grade security',
-      points: ['Encryption in transit and at rest', 'SOC 2 compliant infrastructure', 'Your data, your control', 'No training on customer data'],
+      points: ['Encryption in transit and at rest', 'Enterprise infrastructure', 'Your data, your control', 'No training on customer data'],
     },
     integrations: ['Website chat', 'SMS', 'WhatsApp', 'Email', 'Phone', 'Calendar sync', 'CRM integration'],
   },

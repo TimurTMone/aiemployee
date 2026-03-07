@@ -3,17 +3,45 @@
 import { useState } from 'react';
 import { linkedinContent } from '@/lib/linkedin-content';
 
+const FORMSPREE_DEMO_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_DEMO_ENDPOINT || '';
+
 export function DemoFormLinkedIn() {
   const { linkedinCta } = linkedinContent;
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitted(true);
-    setLoading(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    if (FORMSPREE_DEMO_ENDPOINT) {
+      try {
+        const res = await fetch(FORMSPREE_DEMO_ENDPOINT, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          setSubmitted(true);
+          form.reset();
+        } else {
+          setError('Something went wrong. Please try again or email us.');
+        }
+      } catch {
+        setError('Something went wrong. Please try again or email us.');
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      await new Promise((r) => setTimeout(r, 800));
+      setSubmitted(true);
+      setLoading(false);
+    }
   }
 
   return (
@@ -37,6 +65,11 @@ export function DemoFormLinkedIn() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="mt-10 space-y-4">
+            {error && (
+              <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                {error}
+              </div>
+            )}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-slate-700">Name *</label>
               <input id="name" name="name" type="text" required className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3" />
@@ -76,6 +109,7 @@ export function DemoFormLinkedIn() {
                 <option value="staff-overload">Staff overwhelmed</option>
               </select>
             </div>
+            <input type="hidden" name="_subject" value="[Demo Request] AI Employees" />
             <button
               type="submit"
               disabled={loading}

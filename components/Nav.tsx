@@ -2,63 +2,61 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useLanguage } from './LanguageProvider';
+import { usePathname } from 'next/navigation';
 
 export function Nav() {
-  const { t, locale, setLocale } = useLanguage();
+  const pathname = usePathname() ?? '';
+  const isHome = pathname === '/';
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const navLinks = isHome
+    ? [
+        { href: '#how-it-works', label: 'How It Works' },
+        { href: '#roi', label: 'ROI' },
+        { href: '#pricing', label: 'Pricing' },
+        { href: '#faq', label: 'FAQ' },
+      ]
+    : [
+        { href: '#solution', label: 'Product' },
+        { href: '#use-cases', label: 'Industries' },
+        { href: '/ai-receptionist-for-dentists', label: 'For Dentists' },
+        { href: '#pricing', label: 'Pricing' },
+      ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-sm" aria-label="Main">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-semibold tracking-tight text-slate-900">
-            AI Employees
-          </span>
+        <Link href="/" className="flex items-center gap-2" aria-label="AI Employees home">
+          <span className="text-xl font-semibold tracking-tight text-slate-900">AI Employees</span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          <Link
-            href="#solution"
-            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
-          >
-            {t.nav.product}
-          </Link>
-          <Link
-            href="#use-cases"
-            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
-          >
-            {t.nav.industries}
-          </Link>
-          <Link
-            href="/ai-receptionist-for-dentists"
-            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
-          >
-            Dental AI Suite
-          </Link>
-          <Link
-            href="#pricing"
-            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
-          >
-            {t.nav.pricing}
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <select
-              value={locale}
-              onChange={(e) => setLocale(e.target.value as 'en' | 'es' | 'ru')}
-              className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700 focus:border-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-400"
-            >
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-              <option value="ru">RU</option>
-            </select>
+          {navLinks.map((link) => (
             <Link
-              href="/demo"
-              className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
             >
-              Watch Demo
+              {link.label}
             </Link>
+          ))}
+          <div className="flex items-center gap-3">
+            {isHome && (
+              <Link
+                href="/demo"
+                className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+              >
+                Watch 2-min demo
+              </Link>
+            )}
+            {!isHome && (
+              <Link
+                href="/demo"
+                className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+              >
+                Watch Demo
+              </Link>
+            )}
             <Link
               href="#demo-form"
               className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
@@ -69,11 +67,13 @@ export function Nav() {
         </div>
 
         <button
+          type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
           className="rounded p-2 md:hidden"
+          aria-expanded={mobileOpen}
           aria-label="Toggle menu"
         >
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -84,46 +84,39 @@ export function Nav() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 md:hidden">
-          <Link
-            href="#solution"
-            className="block py-2 text-slate-600"
-            onClick={() => setMobileOpen(false)}
-          >
-            {t.nav.product}
-          </Link>
-          <Link
-            href="#use-cases"
-            className="block py-2 text-slate-600"
-            onClick={() => setMobileOpen(false)}
-          >
-            {t.nav.industries}
-          </Link>
-          <Link
-            href="/ai-receptionist-for-dentists"
-            className="block py-2 text-slate-600"
-            onClick={() => setMobileOpen(false)}
-          >
-            Dental AI Suite
-          </Link>
-          <Link
-            href="#pricing"
-            className="block py-2 text-slate-600"
-            onClick={() => setMobileOpen(false)}
-          >
-            {t.nav.pricing}
-          </Link>
-          <div className="mt-3 flex gap-2">
+        <div className="border-t border-slate-200 bg-white px-4 py-4 md:hidden" role="dialog" aria-label="Mobile menu">
+          {navLinks.map((link) => (
             <Link
-              href="/demo"
-              className="flex-1 rounded-lg border border-slate-300 px-4 py-2 text-center text-sm font-medium"
+              key={link.href}
+              href={link.href}
+              className="block py-3 text-slate-600 hover:text-slate-900"
               onClick={() => setMobileOpen(false)}
             >
-              Watch Demo
+              {link.label}
             </Link>
+          ))}
+          <div className="mt-3 flex gap-2">
+            {isHome && (
+              <Link
+                href="/demo"
+                className="flex-1 rounded-lg border border-slate-300 px-4 py-3 text-center text-sm font-medium"
+                onClick={() => setMobileOpen(false)}
+              >
+                Watch 2-min demo
+              </Link>
+            )}
+            {!isHome && (
+              <Link
+                href="/demo"
+                className="flex-1 rounded-lg border border-slate-300 px-4 py-3 text-center text-sm font-medium"
+                onClick={() => setMobileOpen(false)}
+              >
+                Watch Demo
+              </Link>
+            )}
             <Link
               href="#demo-form"
-              className="flex-1 rounded-lg bg-slate-900 px-4 py-2 text-center text-sm font-medium text-white"
+              className="flex-1 rounded-lg bg-slate-900 px-4 py-3 text-center text-sm font-medium text-white"
               onClick={() => setMobileOpen(false)}
             >
               Book Demo
